@@ -13,6 +13,7 @@ public class UDPSender {
         byte[] data = str.getBytes();
 
         DatagramPacket packet = new DatagramPacket(data, data.length, ip, 7100);
+        System.out.println("클라이언트 포트 >> " + packet.getPort());
 
         socket.send(packet);
         socket.close();
