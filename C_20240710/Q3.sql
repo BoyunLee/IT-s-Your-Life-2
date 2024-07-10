@@ -1,0 +1,46 @@
+use shop4;
+
+CREATE TABLE member (
+    id VARCHAR(100) NOT NULL,
+    pw VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    tel VARCHAR(100),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE bbs (
+    no INT AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    content VARCHAR(100) NOT NULL,
+    writer VARCHAR(100) NOT NULL,
+    PRIMARY KEY (no),
+    FOREIGN KEY (writer) REFERENCES member(id)
+);
+
+ CREATE TABLE reply (
+    id VARCHAR(100) NOT NULL,
+    oriId INT NOT NULL,
+    content VARCHAR(100) NOT NULL,
+    writer VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (oriId) REFERENCES bbs(no),
+    FOREIGN KEY (writer) REFERENCES member(id)
+);
+
+ALTER TABLE member MODIFY tel VARCHAR(50);
+
+ALTER TABLE bbs DROP COLUMN title;
+
+ALTER TABLE bbs ADD COLUMN passwd VARCHAR(100) NOT NULL;
+
+DESC member;
+
+SHOW TABLES;
+
+SHOW DATABASES;
+
+DROP TABLE reply;
+
+DROP TABLE bbs;
+
+DROP TABLE member;
