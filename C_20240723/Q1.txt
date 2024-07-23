@@ -1,0 +1,28 @@
+1. shop3 db를 선택(collection이 생성되지 않은 shop3 db가 생성, 프린트 되지 않음.)
+> use shop3
+
+2. 전체 db목록 프린트
+> show dbs
+
+3. member collection 생성
+db.createCollection('member')
+
+4. id:hong, pw:1234, name:honggildong, tel: 011추가 후 내용확인
+> db.member.insertOne({'id':'hong', 'pw':'1234', 'name':'honggildong', 'tel':'011'})
+> db.member.find() 
+
+5. id:kim, pw:1234, name:kimdong, tel:012
+id:park, pw:1234, name:parkdong, tel:013 추가 후 내용확인
+> db.member.insertOne({'id':'kim', 'pw':'1234', 'name':'kimdong', 'tel':'012'})
+> db.member.insertOne({'id':'park', 'pw':'1234', 'name':'parkdong', 'tel':'013'})
+> db.member.find() 
+
+6. member collection 삭제
+> db.member.drop()
+> show Collections
+
+7. shop3 db 삭제
+> db.dropDatabase()
+
+8. 전체 db목록 프린트
+> show databases

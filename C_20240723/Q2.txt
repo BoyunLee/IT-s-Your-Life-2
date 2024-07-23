@@ -1,0 +1,36 @@
+1. office가 Wordware인 사람의 age, phone만 검색
+> db.memo.find({office:'Wordware'}, {age:1, phone:1, _id:0})
+
+2. age가 1인 사람의 office, name 검색한 후, 갯수 확인(count)
+> db.memo.find({age:1}, {office:1, name:1, _id:0}).count()
+
+3. age: 200, name: hong, office: busan, phone: 011 추가
+> db.memo.insertOne({age:200,name:'hong',office:'busan', phone:1})
+
+4. 전체 memo collection 검색
+> db.memo.find()
+
+5. name이 hong인 메모 검색
+> db.memo.find({name:'hong'})
+
+6. age가 1인 사람의 office를 seoul로 수정(1개의 document), 수정된 내용 확인
+> db.memo.updateOne({age:1},{$set : {office:'seoul'}})
+> db.memo.find({age:1})
+
+7. age가 2이거나 office가 busan인 사람의 전체 목록 프린트
+> db.memo.find({$or : [{age: 2}, {office: 'busan'}]})
+
+8. age가 3인 사람의 document를 모두 삭제 후, age가 3인 사람을 검색
+> db.memo.deleteMany({age:3})
+> db.memo.find({age:3})
+
+9. name이 Didi인 모든 사람을 office를 ulsan으로 변경, name이 Didi인 사람 검색
+> db.memo.updateMany({name : 'Didi'}, {$set : {office: 'ulsan'}})
+> db.memo.find({name:'Didi'})
+
+10. memo에 있는 목록 전체 삭제
+> db.memo.deleteMany({})
+
+11. memo collection 삭제 후 전체 collections 목록 프린트
+> db.memo.drop
+> show collections
