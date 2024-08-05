@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 빈 정의 -->
+    <bean id="engine" class="com.multi.spring2_2.xml_test.Engine"/>
+
+    <bean id="car" class="com.multi.spring2_2.xml_test.Car">
+        <property name="engine" ref="engine"/>
+        <!--setEngine()-->
+    </bean>
+
+</beans>
+
+
+
+
+
+
