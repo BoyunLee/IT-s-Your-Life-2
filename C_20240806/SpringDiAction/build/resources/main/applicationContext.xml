@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Product Beans -->
+    <bean id="product1" class="org.example.product.Product">
+        <constructor-arg value="Laptop" />
+        <constructor-arg value="1200.00" />
+    </bean>
+
+    <bean id="product2" class="org.example.product.Product">
+        <constructor-arg value="Smartphone" />
+        <constructor-arg value="800.00" />
+    </bean>
+
+    <!-- ShoppingCart Bean -->
+    <bean id="shoppingCart" class="org.example.product.ShoppingCart" />
+    <!-- Customer Bean with ShoppingCart dependency -->
+    <bean id="customer" class="org.example.product.Customer">
+        <constructor-arg value="John Doe" />
+        <constructor-arg ref="shoppingCart" />
+    </bean>
+
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- EmailService 빈 정의 -->
+    <bean id="emailService" class="com.multi.di1.service.EmailService" />
+
+    <!-- UserRepository 빈 정의 -->
+    <bean id="userRepository" class="com.multi.di1.repository.UserRepository" />
+
+    <!-- UserService 빈 정의 및 의존성 주입 -->
+    <bean id="userService" class="com.multi.di1.service.UserService">
+        <property name="userRepository" ref="userRepository"/>
+        <property name="emailService" ref="emailService"/>
+    </bean>
+</beans>
