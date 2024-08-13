@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.multi.spring3.member.mapper.MemberMapper">
+
+    <insert id="insert"
+            parameterType="com.multi.spring3.member.domain.MemberVO">
+        insert into member
+        values (#{id}, #{pw}, #{name}, #{tel});
+    </insert>
+
+    <update id="update"
+            parameterType="com.multi.spring3.member.domain.MemberVO">
+        update member set tel = #{tel}
+        where id = #{id}
+    </update>
+
+    <delete id="delete"
+            parameterType="String">
+        delete from member
+        where id = #{id}
+    </delete>
+
+    <select id="one"
+            parameterType="String"
+            resultType="com.multi.spring3.member.domain.MemberVO">
+        select * from member
+        where id = #{id}
+    </select>
+
+    <select id="all"
+            resultType="com.multi.spring3.member.domain.MemberVO">
+        select * from member
+    </select>
+
+    <select id="login"
+            parameterType="com.multi.spring3.member.domain.MemberVO"
+            resultType="int">
+        select count(id) from member
+        where id = #{id} and pw = #{pw}
+    </select>
+    <select id="find"
+            parameterType="String"
+            resultType="com.multi.spring3.member.domain.MemberVO">
+        select * from member
+        where id LIKE CONCAT('%', #{word}, '%')
+    </select>
+
+</mapper>

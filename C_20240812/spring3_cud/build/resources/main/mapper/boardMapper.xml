@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.multi.spring3.board.mapper.BoardMapper">
+
+    <insert id="insert"
+            parameterType="com.multi.spring3.board.domain.BoardVO">
+        insert into board (title, content, writer)
+        values (#{title}, #{content}, #{writer});
+    </insert>
+
+    <update id="update"
+            parameterType="com.multi.spring3.board.domain.BoardVO">
+        update board set content = #{content}
+        where no = #{no}
+    </update>
+
+    <delete id="delete"
+            parameterType="int">
+        delete from board
+        where no = #{no}
+    </delete>
+
+    <select id="one"
+            parameterType="int"
+            resultType="com.multi.spring3.board.domain.BoardVO">
+        select * from board
+        where no = #{no}
+    </select>
+
+    <select id="all"
+            resultType="com.multi.spring3.board.domain.BoardVO">
+        select * from board
+    </select>
+</mapper>
