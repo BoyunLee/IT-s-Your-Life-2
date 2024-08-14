@@ -1,0 +1,15 @@
+<configuration>
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} - %msg%n"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <!-- info레벨이므로 debug메시지는 출력되지 않음.(info + error) -->
+        <!-- debug레벨로 하면 info, debug, error모두 출력-->
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

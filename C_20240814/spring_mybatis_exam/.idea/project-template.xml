@@ -1,0 +1,4 @@
+<template>
+  <input-field default="Tomcat 9.0.91">IJ_APPLICATION_SERVER</input-field>
+  <input-field default="com.multi.spring2">IJ_BASE_PACKAGE</input-field>
+</template>
