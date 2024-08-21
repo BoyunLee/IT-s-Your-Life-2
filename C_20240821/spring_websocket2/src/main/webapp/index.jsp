@@ -10,6 +10,7 @@
   <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
           rel="stylesheet">
+  <link rel="stylesheet" href="resources/css/out.css">
   <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="resources/js/sockjs-0.3.4.js"></script>
@@ -71,8 +72,8 @@
 <body onload="connect();">
 <br>
 <br>
-<img src="resources/image/chat1.png" width="100" height="100"><img src="resources/image/chat4.png" width="400" height="100">
-<div class="alert alert-primary" style="width: 500px;">
+<img src="resources/image/chatbot.png" width="500" height="180">
+<div class="alert alert-primary chat-body" style="width: 500px;">
   <div>챗 봇>> 1) 은행거래 2) 대출거래</div>
   <br>
   <div id="response">
@@ -82,9 +83,9 @@
     <table>
       <tr>
         <!-- input 필드에 onkeypress 이벤트 추가 -->
-        <td><input type="text" class="form-control" id="text" style="width: 400px; background: yellow"
+        <td><input type="text" class="form-control" id="text" style="width: 400px; background: lightyellow"
                    onkeypress="checkEnter(event)"></td>
-        <td><button id="sendMessage" onclick="sendMessage();"class="btn btn-primary">Send</button></td>
+        <td><button id="sendMessage" onclick="sendMessage();"class="btn btn-primary chat-button">Send</button></td>
       </tr>
     </table>
   </div>
