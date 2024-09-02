@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.multi.spring2.people.mapper.PeopleMapper">
+
+    <!-- Insert statement for inserting a PeopleVO object into the MoviePerson table -->
+    <insert id="insert"
+            parameterType="PeopleVO">
+        INSERT INTO MoviePerson
+        (
+            peopleCd, peopleNm, peopleNmEn, repRoleNm, filmoNames
+        )
+        VALUES (
+                   #{peopleCd}, #{peopleNm}, #{peopleNmEn}, #{repRoleNm}, #{filmoNames}
+               );
+    </insert>
+
+    <!-- Select statement for retrieving all records from the MoviePerson table -->
+    <select id="all"
+            resultType="PeopleVO">
+        SELECT *
+        FROM MoviePerson;
+    </select>
+
+</mapper>

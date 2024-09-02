@@ -1,0 +1,105 @@
+
+
+plugins {
+  id 'java'
+  id 'war'
+}
+
+
+group 'com.multi'
+version '1.0-SNAPSHOT'
+
+
+repositories {
+  mavenCentral()
+}
+
+
+ext {
+  junitVersion = '5.9.2'
+  springVersion = '5.3.37'
+}
+
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+
+tasks.withType(JavaCompile) {
+  options.encoding = 'UTF-8'
+}
+
+
+dependencies {
+  // 스프링
+  implementation ("org.springframework:spring-context:5.3.37")
+          { exclude group: 'commons-logging', module: 'commons-logging' }
+  implementation "org.springframework:spring-webmvc:5.3.37"
+  implementation 'javax.inject:javax.inject:1'
+  implementation 'org.springframework:spring-web:5.3.37'
+  // Spring Core
+  implementation 'org.springframework:spring-core:5.3.10'
+
+
+  // Jackson Databind 라이브러리 추가
+  implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+
+  // (필요한 경우) Jackson Core 및 Annotations 라이브러리 추가
+  implementation 'com.fasterxml.jackson.core:jackson-core:2.14.0'
+  implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.0'
+  implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.2'
+
+  // JSON 라이브러리
+  implementation 'org.json:json:20231013'
+
+
+  // 필요한 의존성 추가, 예를 들어 XML 파싱 라이브러리
+  implementation 'javax.xml.bind:jaxb-api:2.3.1'
+
+
+  // springfox-swagger2와 springfox-swagger-ui 의존성 추가
+  implementation 'io.springfox:springfox-swagger2:2.9.2'
+  implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+  //mybatis
+  implementation 'org.springframework:spring-jdbc:5.3.37'
+  implementation 'org.mybatis:mybatis:3.5.10'
+  implementation 'org.mybatis:mybatis-spring:2.0.7'
+  runtimeOnly 'mysql:mysql-connector-java:8.0.26'
+  implementation 'org.apache.commons:commons-dbcp2:2.9.0'
+
+  // AOP
+  implementation 'org.aspectj:aspectjrt:1.9.20'
+  implementation 'org.aspectj:aspectjweaver:1.9.20'
+
+  // JSP, SERVLET, JSTL
+  implementation('javax.servlet:javax.servlet-api:4.0.1')
+  compileOnly 'javax.servlet.jsp:jsp-api:2.1'
+  implementation 'javax.servlet:jstl:1.2'
+
+  // Logging
+  implementation 'org.slf4j:slf4j-api:2.0.9'
+  runtimeOnly 'org.slf4j:jcl-over-slf4j:2.0.9'
+  runtimeOnly 'org.slf4j:slf4j-log4j12:2.0.9'
+
+  // Logback Classic
+  implementation 'ch.qos.logback:logback-classic:1.2.10'
+  implementation 'commons-logging:commons-logging:1.2'
+
+  // xml내 한글 처리
+  implementation 'xerces:xercesImpl:2.12.2'
+
+  compileOnly 'org.projectlombok:lombok:1.18.28'
+  annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+  testImplementation "org.springframework:spring-test:${springVersion}"
+  testCompileOnly 'org.projectlombok:lombok:1.18.28'
+  testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+  testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+
+test {
+  useJUnitPlatform()
+}
